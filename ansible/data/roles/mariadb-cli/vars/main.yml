@@ -1,0 +1,6 @@
+---
+  mariadb_cli_packages:
+    - mariadb
+    - mariadb-libs
+    - mariadb-devel
+    - MySQL-python

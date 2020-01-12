@@ -1,0 +1,13 @@
+- name: download wordpress
+  get_url:
+    url="{{ wordpress_url }}"
+    dest=/tmp/wordpress.tar.gz
+
+- name: decompression wordpress
+  unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/html/ copy=no
+
+- name: change permission
+  file: path=/var/www/html/wordpress/ owner=apache group=apache recurse=yes
+
+- name: restart httpd
+  service: name=httpd state=restarted

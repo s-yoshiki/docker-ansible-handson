@@ -1,0 +1,10 @@
+---
+  # パッケージのインストール
+  - name: install mariadb packages
+    yum:
+      name: "{{ mariadb_server_packages }}"
+      state: latest
+    notify: restart mariadb
+
+  - name: setup mariadb
+    include_tasks: setup.yml

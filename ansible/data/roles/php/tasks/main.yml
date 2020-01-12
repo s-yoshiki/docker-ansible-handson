@@ -1,0 +1,9 @@
+---
+# 各種設定ファイルymlを読み込む
+- name: install httpd packages
+  include_tasks: setup.yml
+  
+- name: make phpinfo
+  copy: >
+    src=phpinfo.php
+    dest=/var/www/html/phpinfo.php

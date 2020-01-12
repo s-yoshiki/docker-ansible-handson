@@ -1,0 +1,4 @@
+---
+# 各種設定ファイルymlを読み込む
+- name: install httpd packages
+  include_tasks: setup.yml

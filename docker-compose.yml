@@ -1,0 +1,34 @@
+version: '3'
+services:
+  ansible:
+    container_name: ansible 
+    build: ansible
+    tty: true
+    privileged: true
+    working_dir: "/var/data"
+    volumes:
+      - ./ansible/data:/var/data  
+    networks:
+      - my-network1
+  web-0:
+    container_name: web
+    build: web
+    tty: true
+    privileged: true
+    ports:
+      - 8080:80
+      - 8443:443
+    networks:
+      - my-network1
+    command: "/sbin/init"
+  db-0:
+    container_name: db
+    build: db
+    tty: true
+    privileged: true
+    networks:
+      - my-network1
+    command: "/sbin/init"
+
+networks:
+  my-network1:

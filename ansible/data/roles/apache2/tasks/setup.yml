@@ -1,0 +1,7 @@
+---
+# パッケージのインストール
+- name: install yum packages
+  yum:
+    name: "{{ httpd_packages }}"
+    state: latest
+  notify: restart httpd

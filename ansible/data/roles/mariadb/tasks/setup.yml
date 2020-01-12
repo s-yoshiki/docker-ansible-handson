@@ -1,0 +1,6 @@
+- name: deploy .my.cnf
+  template:
+    src: templates/my.cnf
+    dest: /root/.my.cnf
+    owner: root
+    group: root

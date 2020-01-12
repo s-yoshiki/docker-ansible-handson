@@ -1,0 +1,6 @@
+---
+  # パッケージのインストール
+  - name: install mariadb packages
+    yum:
+      name: "{{ mariadb_cli_packages }}"
+      state: latest

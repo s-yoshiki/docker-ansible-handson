@@ -1,0 +1,6 @@
+- hosts: web
+  roles:
+    - apache2
+    - php
+    - mariadb-cli
+    - wordpress

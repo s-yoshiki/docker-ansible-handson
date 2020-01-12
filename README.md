@@ -1,0 +1,2 @@
+# docker-ansible-handson
+dockerコンテナをansibleでプロビジョニングするサンプル

@@ -1,3 +1,11 @@
 - hosts: db
   roles:
-    - mariadb
+    - role: mariadb
+      vars:
+        mariadb_bind_address: '0.0.0.0'
+    - role: mariadb-user
+      vars:
+        dbname: test_database
+        dbuser: test_user
+        dbpass: test_password
+        host: '%'

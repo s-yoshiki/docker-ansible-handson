@@ -1,0 +1,23 @@
+# roles/mariadb/defaults/main.yml
+---
+
+mariadb_databases: []
+mariadb_users: []
+mariadb_root_password: ''
+
+mariadb_mirror: yum.mariadb.org
+mariadb_version: '10.4'
+
+mariadb_configure_swappiness: true
+mariadb_swappiness: 0
+
+# Network configuration (network.cnf)
+
+mariadb_service: mariadb
+mariadb_bind_address: '127.0.0.1'
+
+# Server configuration
+mariadb_server_cnf: {}
+
+# Custom configuration
+mariadb_custom_cnf: {}

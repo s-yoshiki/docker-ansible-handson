@@ -1,10 +1,15 @@
+# roles/mariadb/tasks/main.yml
 ---
-  # パッケージのインストール
-  - name: install mariadb packages
-    yum:
-      name: "{{ mariadb_server_packages }}"
-      state: latest
-    notify: restart mariadb
 
-  - name: setup mariadb
-    include_tasks: setup.yml
+- name: Include distribution dependent variables
+  include_vars: "main.yml"
+  # with_first_found:
+  #   - "{{ ansible_distribution }}.yml"
+  #   - "{{ ansible_os_family }}.yml"
+  # tags: mariadb
+
+- include_tasks: install.yml
+- include_tasks: config.yml
+- include_tasks: root-password.yml
+- include_tasks: databases.yml
+- include_tasks: users.yml

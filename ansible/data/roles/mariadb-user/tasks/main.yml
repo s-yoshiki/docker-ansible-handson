@@ -1,0 +1,10 @@
+- name: make database
+  mysql_db: db={{ dbname }} state=present encoding=utf8
+- name: make user
+  mysql_user: >
+    name={{ dbuser }}
+    password="{{ dbpass }}"
+    host={{ host }}
+    priv={{ dbname }}.*:ALL
+    append_privs=yes
+    state=present

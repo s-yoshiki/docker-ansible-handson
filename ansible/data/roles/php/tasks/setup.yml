@@ -6,9 +6,6 @@
   - name: add remi-repo repository
     command: rpm -ih http://rpms.famillecollet.com/enterprise/remi-release-7.rpm creates=/etc/yum.repos.d/remi.repo
 
-  # - name: install libargon2
-  #   command: rpm -ih https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/l/libargon2-20161029-3.el7.x86_64.rpm
-
   - name: install libargon2
     yum:
       name: https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/l/libargon2-20161029-3.el7.x86_64.rpm
@@ -20,6 +17,5 @@
       name: "{{ php_packages }}"
       state: present
       enablerepo: "epel,remi,remi-php72"
-      # enablerepo: php72
     notify: restart httpd
   
